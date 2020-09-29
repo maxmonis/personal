@@ -39,14 +39,12 @@ const Layout = ({ children }) => {
       <div
         css={css`
           min-height: 100vh;
-          margin: 3rem;
         `}
       >
         <main>{children}</main>
       </div>
       <footer
         css={css`
-          height: 20px;
           text-align: center;
         `}
       >

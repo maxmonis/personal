@@ -5,42 +5,36 @@ import { css } from "@emotion/core"
 
 const Header = ({ title, description }) => {
   return (
-    <header>
-      <div
-        css={css`
-          background: rebeccapurple;
-          padding: 1rem;
-        `}
-      >
-        <h1
-          css={css`
-            margin: 0;
-            color: white;
+    <header
+      css={css`
+        background: rebeccapurple;
+        padding: 1rem;
+        h1 {
+          color: white;
+          display: flex;
+        }
+        span {
+          display: none;
+          @media (min-width: 576px) {
             display: flex;
+            margin: 0 4% 0 auto;
+          }
+        }
+      `}
+    >
+      <h1>
+        <Link
+          to="/"
+          css={css`
+            color: white;
+            text-decoration: none;
+            margin: 0 4%;
           `}
         >
-          <Link
-            to="/"
-            css={css`
-              color: white;
-              text-decoration: none;
-              padding: 0 5%;
-            `}
-          >
-            {title}
-          </Link>
-          <span
-            css={css`
-              display: none;
-              @media (min-width: 576px) {
-                display: flex;
-              }
-            `}
-          >
-            {description}
-          </span>
-        </h1>
-      </div>
+          {title}
+        </Link>
+        <span>{description}</span>
+      </h1>
     </header>
   )
 }
