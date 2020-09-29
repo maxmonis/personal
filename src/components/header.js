@@ -5,26 +5,27 @@ import { css } from "@emotion/core"
 
 const Header = ({ title, description }) => {
   return (
-    <header
-      style={{
-        background: `rebeccapurple`,
-        marginBottom: `1.45rem`,
-      }}
-    >
+    <header>
       <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `1.45rem 1.0875rem`,
-        }}
+        css={css`
+          background: rebeccapurple;
+          padding: 1rem;
+        `}
       >
-        <h1 style={{ margin: 0, color: `white`, display: "flex" }}>
+        <h1
+          css={css`
+            margin: 0;
+            color: white;
+            display: flex;
+          `}
+        >
           <Link
             to="/"
-            style={{
-              color: `white`,
-              textDecoration: `none`,
-            }}
+            css={css`
+              color: white;
+              text-decoration: none;
+              padding: 0 5%;
+            `}
           >
             {title}
           </Link>
@@ -33,7 +34,6 @@ const Header = ({ title, description }) => {
               display: none;
               @media (min-width: 576px) {
                 display: flex;
-                margin-left: 2rem;
               }
             `}
           >

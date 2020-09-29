@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-
+import { css } from "@emotion/core"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
@@ -10,7 +10,11 @@ const IndexPage = () => (
     <SEO title="Home" />
     <h1>My name is Max</h1>
     <p>Welcome to my site.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+    <div
+      css={css`
+        max-width: 300px;
+      `}
+    >
       <Image />
     </div>
     <Link to="/projects/">View my portfolio</Link> <br />
