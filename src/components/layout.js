@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Global, css } from "@emotion/core"
 import Header from "./header"
+import Image from "./image"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -28,31 +29,34 @@ const Layout = ({ children }) => {
           ul {
             list-style: none;
           }
+          Link {
+            color: white;
+            text-decoration: none;
+          }
         `}
       />
-      <Header
-        title={data.site.siteMetadata?.title || `Max Monis`}
-        description={
-          data.site.siteMetadata?.description || `Toronto web developer`
-        }
-      />
-      <div
-        css={css`
-          min-height: 100vh;
-        `}
-      >
-        <main>{children}</main>
-      </div>
-      <footer
-        css={css`
-          text-align: center;
-        `}
-      >
-        © {new Date().getFullYear()}{" "}
-        <a target="_blank" rel="noreferrer" href="https://github.com/maxmonis">
-          Max Monis
-        </a>
-      </footer>
+      <Image>
+        <Header
+          title={data.site.siteMetadata?.title || `Max Monis`}
+          description={
+            data.site.siteMetadata?.description || `Toronto web developer`
+          }
+        />
+        <main
+          css={css`
+            min-height: 100vh;
+          `}
+        >
+          {children}
+        </main>
+        <footer
+          css={css`
+            text-align: center;
+          `}
+        >
+          © Max Monis {new Date().getFullYear()}
+        </footer>
+      </Image>
     </>
   )
 }

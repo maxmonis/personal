@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import styled from "@emotion/styled"
@@ -13,19 +14,15 @@ const Text = styled.div`
     rgba(34, 49, 63, 0.6)
   );
   color: #fff;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   flex: 1;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
 `
 
-const Image = () => {
-  const date = new Date()
-  const hrs = date.getHours()
-  const greeting = hrs < 12 ? "morning" : hrs < 17 ? "afternoon" : "evening"
+const Image = ({ children }) => {
   const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "mad-max.jpeg" }) {
@@ -39,13 +36,13 @@ const Image = () => {
   `)
   return (
     <Background tag="section" fluid={image.sharp.fluid} fadeIn="soft">
-      <Text>
-        <h2>Good {greeting} and welcome!</h2>
-        <h1>My name is Max</h1>
-        <p>I build websites</p>
-      </Text>
+      <Text>{children}</Text>
     </Background>
   )
+}
+
+Image.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export default Image

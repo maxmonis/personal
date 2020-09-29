@@ -7,7 +7,7 @@ const Header = ({ title, description }) => {
   return (
     <header
       css={css`
-        background: rebeccapurple;
+        width: 100%;
         padding: 1rem;
         h1 {
           color: white;
