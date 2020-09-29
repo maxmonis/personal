@@ -4,21 +4,16 @@ import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import styled from "@emotion/styled"
 
-const Background = styled(BackgroundImage)`
-  width: 100%;
-`
-const Text = styled.div`
+const Container = styled.div`
   background-image: linear-gradient(
     to top,
     rgba(34, 49, 63, 0.6),
     rgba(34, 49, 63, 0.6)
   );
-  color: #fff;
   display: flex;
   flex-direction: column;
   flex: 1;
   align-items: center;
-  justify-content: space-between;
   text-align: center;
 `
 
@@ -35,9 +30,9 @@ const Image = ({ children }) => {
     }
   `)
   return (
-    <Background tag="section" fluid={image.sharp.fluid} fadeIn="soft">
-      <Text>{children}</Text>
-    </Background>
+    <BackgroundImage tag="section" fluid={image.sharp.fluid} fadeIn="soft">
+      <Container>{children}</Container>
+    </BackgroundImage>
   )
 }
 

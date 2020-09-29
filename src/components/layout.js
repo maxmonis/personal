@@ -11,7 +11,6 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
-          description
         }
       }
     }
@@ -25,23 +24,14 @@ const Layout = ({ children }) => {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-          }
-          ul {
-            list-style: none;
-          }
-          Link {
             color: white;
             text-decoration: none;
+            list-style: none;
           }
         `}
       />
       <Image>
-        <Header
-          title={data.site.siteMetadata?.title || `Max Monis`}
-          description={
-            data.site.siteMetadata?.description || `Toronto web developer`
-          }
-        />
+        <Header title={data.site.siteMetadata?.title || `Max Monis`} />
         <main
           css={css`
             min-height: 100vh;

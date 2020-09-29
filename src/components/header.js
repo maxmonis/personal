@@ -3,50 +3,42 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import { css } from "@emotion/core"
 
-const Header = ({ title, description }) => {
+const Header = ({ title }) => {
   return (
     <header
       css={css`
         width: 100%;
-        padding: 1rem;
-        h1 {
-          color: white;
-          display: flex;
-        }
+        padding: 1rem 5%;
+        display: flex;
+        flex: row;
         span {
-          display: none;
-          @media (min-width: 576px) {
-            display: flex;
-            margin: 0 4% 0 auto;
+          margin: 0 0 0 auto;
+          a {
+            padding: 1rem 1rem 0;
           }
         }
       `}
     >
       <h1>
-        <Link
-          to="/"
-          css={css`
-            color: white;
-            text-decoration: none;
-            margin: 0 4%;
-          `}
-        >
-          {title}
-        </Link>
-        <span>{description}</span>
+        <Link to="/">{title}</Link>
       </h1>
+      <span>
+        <Link to="/projects/">Portfolio</Link>
+        <Link to="/blog/">Blog</Link>
+        <a target="_blank" rel="noreferrer" href="https://github.com/maxmonis">
+          Github
+        </a>
+      </span>
     </header>
   )
 }
 
 Header.propTypes = {
   title: PropTypes.string,
-  description: PropTypes.string,
 }
 
 Header.defaultProps = {
-  title: `Title`,
-  description: `Description`,
+  title: `Max Monis`,
 }
 
 export default Header
