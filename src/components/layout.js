@@ -35,6 +35,7 @@ const Layout = ({ children }) => {
         <main
           css={css`
             min-height: 100vh;
+            padding: 5rem 1rem;
           `}
         >
           {children}
