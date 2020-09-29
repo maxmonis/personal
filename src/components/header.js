@@ -1,35 +1,84 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import { css } from "@emotion/core"
+import styled from "@emotion/styled"
+
+const Container = styled.header`
+  width: 100%;
+  height: 100px;
+  padding: 2rem 5%;
+  display: flex;
+  flex: row;
+  span {
+    margin: 0 0 0 auto;
+    a {
+      padding: 1rem 1rem 0;
+    }
+  }
+  li {
+    margin-top: 1rem;
+    text-align: right;
+  }
+`
+const Button = styled.h3`
+  cursor: pointer;
+`
 
 const Header = ({ title }) => {
+  const [mobile, setMobile] = useState(
+    typeof window !== "undefined" && window.innerWidth < 576
+  )
+  const updateMedia = () => {
+    setMobile(window.innerWidth < 576)
+  }
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia)
+    return () => window.removeEventListener("resize", updateMedia)
+  })
+  const [menu, setMenu] = useState(false)
+  const toggle = () => setMenu(!menu)
   return (
-    <header
-      css={css`
-        width: 100%;
-        padding: 1rem 5%;
-        display: flex;
-        flex: row;
-        span {
-          margin: 0 0 0 auto;
-          a {
-            padding: 1rem 1rem 0;
-          }
-        }
-      `}
-    >
+    <Container>
       <h1>
         <Link to="/">{title}</Link>
       </h1>
       <span>
-        <Link to="/projects/">Portfolio</Link>
-        <Link to="/blog/">Blog</Link>
-        <a target="_blank" rel="noreferrer" href="https://github.com/maxmonis">
-          Github
-        </a>
+        {!mobile ? (
+          <div>
+            <Link to="/projects/">Portfolio</Link>
+            <Link to="/blog/">Blog</Link>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/maxmonis"
+            >
+              Github
+            </a>
+          </div>
+        ) : menu ? (
+          <>
+            <Button onClick={toggle}>Hide Menu &#9650;</Button>
+            <li>
+              <Link to="/projects/">Portfolio</Link>
+            </li>
+            <li>
+              <Link to="/blog/">Blog</Link>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://github.com/maxmonis"
+              >
+                Github
+              </a>
+            </li>
+          </>
+        ) : (
+          <Button onClick={toggle}>Show Menu &#9660;</Button>
+        )}
       </span>
-    </header>
+    </Container>
   )
 }
 
