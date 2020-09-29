@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
+import { css } from "@emotion/core"
 
 const Header = ({ title, description }) => {
-  const [mobile, setMobile] = useState(window.innerWidth < 576)
-  const updateMedia = () => {
-    setMobile(window.innerWidth < 576)
-  }
-  useEffect(() => {
-    window.addEventListener("resize", updateMedia)
-    return () => window.removeEventListener("resize", updateMedia)
-  })
   return (
     <header
       style={{
@@ -25,7 +18,7 @@ const Header = ({ title, description }) => {
           padding: `1.45rem 1.0875rem`,
         }}
       >
-        <h1 style={{ margin: 0, color: `white` }}>
+        <h1 style={{ margin: 0, color: `white`, display: "flex" }}>
           <Link
             to="/"
             style={{
@@ -35,7 +28,17 @@ const Header = ({ title, description }) => {
           >
             {title}
           </Link>
-          {!mobile && ` | ${description}`}
+          <span
+            css={css`
+              display: none;
+              @media (min-width: 576px) {
+                display: flex;
+                margin-left: 2rem;
+              }
+            `}
+          >
+            {description}
+          </span>
         </h1>
       </div>
     </header>

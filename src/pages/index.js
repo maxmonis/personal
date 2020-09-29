@@ -14,6 +14,9 @@ const IndexPage = () => (
       <Image />
     </div>
     <Link to="/projects/">View my portfolio</Link> <br />
+    <a target="_blank" rel="noreferrer" href="https://github.com/maxmonis">
+      Check out my Github
+    </a>
   </Layout>
 )
 
