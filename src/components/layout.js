@@ -45,7 +45,13 @@ const Layout = ({ children }) => {
             text-align: center;
           `}
         >
-          © Max Monis {new Date().getFullYear()}
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/maxmonis"
+          >
+            © Max Monis {new Date().getFullYear()}
+          </a>
         </footer>
       </Image>
     </>

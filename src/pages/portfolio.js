@@ -6,14 +6,14 @@ import SEO from "../components/seo"
 import useWebsites from "../hooks/useWebsites"
 import Website from "../components/website"
 
-const Projects = () => {
+const Portfolio = () => {
   const websites = useWebsites()
   return (
     <Layout>
-      <SEO title="Projects" />
+      <SEO title="Portfolio" />
       <div>
         {websites.map(website => (
-          <Website website={website} />
+          <Website key={website.url} website={website} />
         ))}
       </div>
       <Link to="/">Go back to the homepage</Link>
@@ -21,4 +21,4 @@ const Projects = () => {
   )
 }
 
-export default Projects
+export default Portfolio

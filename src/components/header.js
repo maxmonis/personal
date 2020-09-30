@@ -45,33 +45,21 @@ const Header = ({ title }) => {
       <span>
         {!mobile ? (
           <div>
-            <Link to="/projects/">Portfolio</Link>
+            <Link to="/portfolio/">Portfolio</Link>
             <Link to="/blog/">Blog</Link>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://github.com/maxmonis"
-            >
-              Github
-            </a>
+            <Link to="/about/">About</Link>
           </div>
         ) : menu ? (
           <>
             <Button onClick={toggle}>Hide Menu &#9650;</Button>
             <li>
-              <Link to="/projects/">Portfolio</Link>
+              <Link to="/portfolio/">Portfolio</Link>
             </li>
             <li>
               <Link to="/blog/">Blog</Link>
             </li>
             <li>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://github.com/maxmonis"
-              >
-                Github
-              </a>
+              <Link to="/about/">About</Link>
             </li>
           </>
         ) : (

@@ -13,7 +13,7 @@ const Blog = () => {
       <SEO title="Blog" />
       <div>
         {articles.map(article => (
-          <Preview article={article} />
+          <Preview key={article.slug} article={article} />
         ))}
       </div>
       <Link to="/">Go back to the homepage</Link>
