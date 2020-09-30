@@ -8,13 +8,19 @@ const useArticles = () => {
           title
           text
           blurb
+          slug
+          image {
+            fluid(maxWidth: 1200) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
         }
       }
     }
   `)
   return data.allDatoCmsArticle.nodes.map(article => {
-    const { title, text, blurb } = article
-    return { title, text, blurb }
+    const { title, image, text, blurb, slug } = article
+    return { title, image, text, blurb, slug }
   })
 }
 
