@@ -30,7 +30,9 @@ const Preview = ({ article }) => {
       <Image fluid={image.fluid} />
       <h3>{title}</h3>
       <p>{blurb}</p>
-      <Button to={slug}>Read more...</Button>
+      <Button to={`../${slug}`} as={`../articles/${slug}`}>
+        Read more...
+      </Button>
     </div>
   )
 }

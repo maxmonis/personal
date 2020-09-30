@@ -11,9 +11,11 @@ const Blog = () => {
   return (
     <Layout>
       <SEO title="Blog" />
-      {articles.map(article => (
-        <Preview article={article} />
-      ))}
+      <div>
+        {articles.map(article => (
+          <Preview article={article} />
+        ))}
+      </div>
       <Link to="/">Go back to the homepage</Link>
     </Layout>
   )
