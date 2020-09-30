@@ -3,6 +3,7 @@ import Image from "gatsby-image"
 import { css } from "@emotion/core"
 import { graphql } from "gatsby"
 import Layout from "./layout"
+import SEO from "../components/seo"
 
 export const query = graphql`
   query($slug: String!) {
@@ -28,6 +29,7 @@ const Article = ({
   const { title, text, image } = nodes[0]
   return (
     <Layout>
+      <SEO title={title} />
       <main
         css={css`
           margin: 0 auto;
