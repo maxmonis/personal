@@ -27,8 +27,8 @@ const Preview = ({ article }) => {
         max-width: 75%;
       `}
     >
+      <h1>{title}</h1>
       <Image fluid={image.fluid} />
-      <h3>{title}</h3>
       <p>{blurb}</p>
       <Button to={`../${slug}`}>Read more...</Button>
     </div>

@@ -16,7 +16,7 @@ const Blog = () => {
           <Preview key={article.slug} article={article} />
         ))}
       </div>
-      <Link to="/">Go back to the homepage</Link>
+      <Link to="/">Return home</Link>
     </Layout>
   )
 }

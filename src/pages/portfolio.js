@@ -16,7 +16,7 @@ const Portfolio = () => {
           <Website key={website.url} website={website} />
         ))}
       </div>
-      <Link to="/">Go back to the homepage</Link>
+      <Link to="/">Return home</Link>
     </Layout>
   )
 }
