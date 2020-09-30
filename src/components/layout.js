@@ -43,6 +43,7 @@ const Layout = ({ children }) => {
         <footer
           css={css`
             text-align: center;
+            padding-bottom: 1rem;
           `}
         >
           <a

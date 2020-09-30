@@ -52,9 +52,6 @@ const Article = ({
             padding: 2rem 10% 0;
             text-align: left;
           }
-          a {
-            font-size: 2rem;
-          }
         `}
       >
         <h1>{title}</h1>
