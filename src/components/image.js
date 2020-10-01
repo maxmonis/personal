@@ -20,7 +20,7 @@ const Container = styled.div`
 const Image = ({ children }) => {
   const { image } = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "mad-max.jpeg" }) {
+      image: file(relativePath: { eq: "parade.jpeg" }) {
         sharp: childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_withWebp
