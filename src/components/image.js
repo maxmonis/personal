@@ -20,7 +20,7 @@ const Container = styled.div`
 const Image = ({ children }) => {
   const { image } = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "parade.jpeg" }) {
+      image: file(relativePath: { eq: "mad-max.jpeg" }) {
         sharp: childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_withWebp
@@ -31,7 +31,12 @@ const Image = ({ children }) => {
   `)
   return (
     <BackgroundImage tag="section" fluid={image.sharp.fluid} fadeIn="soft">
-      <Container>{children}</Container>
+      <Container>
+        {children}
+        <p>
+          Warner Bros., Village Roadshow Pictures, Kennedy Miller Productions
+        </p>
+      </Container>
     </BackgroundImage>
   )
 }

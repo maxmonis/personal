@@ -11,11 +11,11 @@ const Website = ({ website }) => {
         margin-bottom: 2rem;
         display: inline-block;
         justify-content: center;
-        padding: 2rem;
+        padding: 2rem 2rem 5rem;
         max-width: 75%;
         h1,
         p {
-          margin: 2rem 0;
+          margin: 4rem 2rem;
         }
       `}
     >
@@ -24,7 +24,6 @@ const Website = ({ website }) => {
         <Image fluid={image.fluid} />
       </a>
       <p>{text}</p>
-
       <a
         css={css`
           padding: 1rem 2rem;
@@ -34,7 +33,7 @@ const Website = ({ website }) => {
         rel="noreferrer"
         href={github}
       >
-        Check out on Github &#10132;
+        View code on Github &#10132;
       </a>
     </div>
   )
