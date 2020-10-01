@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -21,7 +20,6 @@ const Blog = () => {
           <Preview key={article.slug} article={article} />
         ))}
       </div>
-      <Link to="/">Return home</Link>
     </Layout>
   )
 }

@@ -2,7 +2,6 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { css } from "@emotion/core"
-import { Link } from "gatsby"
 
 const IndexPage = () => {
   const date = new Date()
@@ -13,6 +12,9 @@ const IndexPage = () => {
       <SEO title="About" />
       <div
         css={css`
+          h2 {
+            margin-top: 5rem;
+          }
           h1,
           h2,
           h3 {
@@ -29,7 +31,9 @@ const IndexPage = () => {
         <h2>Good {greeting} and welcome!</h2>
         <h1>My name is Max</h1>
         <h3>I build websites</h3>
-        <Link to="/portfolio/">Check out my work &#10132;</Link>
+        <a href={`mailto:mmonis77@gmail.com`} className="email-link">
+          Get In Touch
+        </a>
       </div>
     </Layout>
   )

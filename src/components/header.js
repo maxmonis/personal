@@ -35,14 +35,10 @@ const Header = ({ title }) => {
     window.addEventListener("resize", updateMedia)
     return () => window.removeEventListener("resize", updateMedia)
   })
-  const [menu, setMenu] = useState(false)
-  const toggle = () => setMenu(!menu)
   return (
     <Container>
       <h1>
-        <Link to="/" activeClassName="active">
-          {title}{" "}
-        </Link>
+        <Link to="/">{title} </Link>
       </h1>
       <span>
         {!mobile ? (
