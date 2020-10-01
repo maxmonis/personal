@@ -28,6 +28,9 @@ const Layout = ({ children }) => {
             text-decoration: none;
             list-style: none;
           }
+          :root {
+            --blue: #486383;
+          }
         `}
       />
       <Image>
@@ -35,7 +38,6 @@ const Layout = ({ children }) => {
         <main
           css={css`
             min-height: 100vh;
-            padding: 5rem 1rem;
           `}
         >
           {children}

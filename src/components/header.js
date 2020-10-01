@@ -13,15 +13,15 @@ const Container = styled.header`
     margin: 0 0 0 auto;
     a {
       padding: 1rem 1rem 0;
+      &.active {
+        border-bottom: 2px solid #fff;
+      }
     }
   }
   li {
     margin-top: 1rem;
     text-align: right;
   }
-`
-const Button = styled.h3`
-  cursor: pointer;
 `
 
 const Header = ({ title }) => {
@@ -40,30 +40,41 @@ const Header = ({ title }) => {
   return (
     <Container>
       <h1>
-        <Link to="/">{title}</Link>
+        <Link to="/" activeClassName="active">
+          {title}{" "}
+        </Link>
       </h1>
       <span>
         {!mobile ? (
           <div>
-            <Link to="/portfolio/">Portfolio</Link>
-            <Link to="/blog/">Blog</Link>
-            <Link to="/about/">About</Link>
+            <Link to="/" activeClassName="active">
+              About
+            </Link>
+            <Link to="/portfolio/" activeClassName="active">
+              Portfolio
+            </Link>
+            <Link to="/blog/" activeClassName="active">
+              Blog
+            </Link>
           </div>
-        ) : menu ? (
+        ) : (
           <>
-            <Button onClick={toggle}>Hide Menu &#9650;</Button>
             <li>
-              <Link to="/portfolio/">Portfolio</Link>
+              <Link to="/" activeClassName="active">
+                About
+              </Link>
             </li>
             <li>
-              <Link to="/blog/">Blog</Link>
+              <Link to="/portfolio/" activeClassName="active">
+                Portfolio
+              </Link>
             </li>
             <li>
-              <Link to="/about/">About</Link>
+              <Link to="/blog/" activeClassName="active">
+                Blog
+              </Link>
             </li>
           </>
-        ) : (
-          <Button onClick={toggle}>Show Menu &#9660;</Button>
         )}
       </span>
     </Container>
