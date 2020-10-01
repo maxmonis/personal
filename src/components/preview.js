@@ -2,17 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import Image from "gatsby-image"
 import { css } from "@emotion/core"
-import styled from "@emotion/styled"
-
-const Button = styled(Link)`
-  margin-top: 2rem;
-  padding: 1rem;
-  background-color: rgba(44, 62, 80, 0.85);
-  width: 95%;
-  display: block;
-  font-weight: 700;
-  text-align: center;
-`
 
 const Preview = ({ article }) => {
   const { title, blurb, slug, image } = article
@@ -25,12 +14,19 @@ const Preview = ({ article }) => {
         justify-content: center;
         padding: 2rem;
         max-width: 75%;
+        h1 {
+          padding-bottom: 1rem;
+        }
+        p {
+          padding: 1rem 10% 0;
+        }
       `}
     >
-      <h1>{title}</h1>
-      <Image fluid={image.fluid} />
-      <p>{blurb}</p>
-      <Button to={`../${slug}`}>Read more...</Button>
+      <Link to={`../${slug}`}>
+        <h1>{title}</h1>
+        <Image fluid={image.fluid} />
+        <p>{blurb}</p>
+      </Link>
     </div>
   )
 }

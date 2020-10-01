@@ -38,40 +38,22 @@ const Header = ({ title }) => {
   return (
     <Container>
       <h1>
-        <Link to="/">{title} </Link>
+        <Link to="/">{mobile ? "MM" : title} </Link>
       </h1>
       <span>
-        {!mobile ? (
-          <div>
+        <div>
+          {!mobile && (
             <Link to="/" activeClassName="active">
               About
             </Link>
-            <Link to="/portfolio/" activeClassName="active">
-              Portfolio
-            </Link>
-            <Link to="/blog/" activeClassName="active">
-              Blog
-            </Link>
-          </div>
-        ) : (
-          <>
-            <li>
-              <Link to="/" activeClassName="active">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to="/portfolio/" activeClassName="active">
-                Portfolio
-              </Link>
-            </li>
-            <li>
-              <Link to="/blog/" activeClassName="active">
-                Blog
-              </Link>
-            </li>
-          </>
-        )}
+          )}
+          <Link to="/portfolio/" activeClassName="active">
+            Portfolio
+          </Link>
+          <Link to="/blog/" activeClassName="active">
+            Blog
+          </Link>
+        </div>
       </span>
     </Container>
   )
