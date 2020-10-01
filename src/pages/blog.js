@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,12 +10,9 @@ const Blog = () => {
   return (
     <Layout>
       <SEO title="Blog" />
-      <div>
-        {articles.map(article => (
-          <Preview key={article.slug} article={article} />
-        ))}
-      </div>
-      <Link to="/">Return home</Link>
+      {articles.map(article => (
+        <Preview key={article.slug} article={article} />
+      ))}
     </Layout>
   )
 }

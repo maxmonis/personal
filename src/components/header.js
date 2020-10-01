@@ -13,15 +13,15 @@ const Container = styled.header`
     margin: 0 0 0 auto;
     a {
       padding: 1rem 1rem 0;
+      &.active {
+        border-bottom: 2px solid #fff;
+      }
     }
   }
   li {
     margin-top: 1rem;
     text-align: right;
   }
-`
-const Button = styled.h3`
-  cursor: pointer;
 `
 
 const Header = ({ title }) => {
@@ -35,36 +35,25 @@ const Header = ({ title }) => {
     window.addEventListener("resize", updateMedia)
     return () => window.removeEventListener("resize", updateMedia)
   })
-  const [menu, setMenu] = useState(false)
-  const toggle = () => setMenu(!menu)
   return (
     <Container>
       <h1>
-        <Link to="/">{title}</Link>
+        <Link to="/">{mobile ? "MM" : title} </Link>
       </h1>
       <span>
-        {!mobile ? (
-          <div>
-            <Link to="/portfolio/">Portfolio</Link>
-            <Link to="/blog/">Blog</Link>
-            <Link to="/about/">About</Link>
-          </div>
-        ) : menu ? (
-          <>
-            <Button onClick={toggle}>Hide Menu &#9650;</Button>
-            <li>
-              <Link to="/portfolio/">Portfolio</Link>
-            </li>
-            <li>
-              <Link to="/blog/">Blog</Link>
-            </li>
-            <li>
-              <Link to="/about/">About</Link>
-            </li>
-          </>
-        ) : (
-          <Button onClick={toggle}>Show Menu &#9660;</Button>
-        )}
+        <div>
+          {!mobile && (
+            <Link to="/" activeClassName="active">
+              About
+            </Link>
+          )}
+          <Link to="/portfolio/" activeClassName="active">
+            Portfolio
+          </Link>
+          <Link to="/blog/" activeClassName="active">
+            Blog
+          </Link>
+        </div>
       </span>
     </Container>
   )

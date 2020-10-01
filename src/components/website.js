@@ -3,29 +3,39 @@ import Image from "gatsby-image"
 import { css } from "@emotion/core"
 
 const Website = ({ website }) => {
-  const { title, text, url, image } = website
+  const { title, text, url, image, github } = website
   return (
-    <a
+    <div
       css={css`
         border: 1px solid #e1e1e1;
         margin-bottom: 2rem;
         display: inline-block;
         justify-content: center;
-        padding: 2rem;
+        padding: 2rem 2rem 5rem;
         max-width: 75%;
         h1,
         p {
-          margin: 2rem 0;
+          margin: 4rem 2rem;
         }
       `}
-      target="_blank"
-      rel="noreferrer"
-      href={url}
     >
       <h1>{title}</h1>
-      <Image fluid={image.fluid} />
+      <a target="_blank" rel="noreferrer" href={url}>
+        <Image fluid={image.fluid} />
+      </a>
       <p>{text}</p>
-    </a>
+      <a
+        css={css`
+          padding: 1rem 2rem;
+          border: solid 2px white;
+        `}
+        target="_blank"
+        rel="noreferrer"
+        href={github}
+      >
+        View code on Github &#10132;
+      </a>
+    </div>
   )
 }
 

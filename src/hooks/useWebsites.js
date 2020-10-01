@@ -8,6 +8,7 @@ const useWebsites = () => {
           title
           text
           url
+          github
           image {
             fluid(maxWidth: 1200) {
               ...GatsbyDatoCmsFluid
@@ -18,8 +19,8 @@ const useWebsites = () => {
     }
   `)
   return data.allDatoCmsWebsite.nodes.map(website => {
-    const { title, image, text, url } = website
-    return { title, image, text, url }
+    const { title, image, text, url, github } = website
+    return { title, image, text, url, github }
   })
 }
 

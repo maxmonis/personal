@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,12 +10,9 @@ const Portfolio = () => {
   return (
     <Layout>
       <SEO title="Portfolio" />
-      <div>
-        {websites.map(website => (
-          <Website key={website.url} website={website} />
-        ))}
-      </div>
-      <Link to="/">Return home</Link>
+      {websites.map(website => (
+        <Website key={website.url} website={website} />
+      ))}
     </Layout>
   )
 }

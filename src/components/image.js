@@ -31,7 +31,12 @@ const Image = ({ children }) => {
   `)
   return (
     <BackgroundImage tag="section" fluid={image.sharp.fluid} fadeIn="soft">
-      <Container>{children}</Container>
+      <Container>
+        {children}
+        <p>
+          Warner Bros., Village Roadshow Pictures, Kennedy Miller Productions
+        </p>
+      </Container>
     </BackgroundImage>
   )
 }
