@@ -9,10 +9,12 @@ const Website = ({ website, i }) => {
   return (
     <div
       css={css`
+        max-width: 95%;
         background-color: ${primary};
         display: inline-block;
+        margin-bottom: 5rem;
         justify-content: center;
-        padding: 1rem;
+        padding: 1rem 1rem 3rem;
         h1,
         p {
           color: ${secondary};
