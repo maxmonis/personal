@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import Image from "gatsby-image"
 import { css } from "@emotion/core"
 import { graphql } from "gatsby"
@@ -55,6 +56,10 @@ const Article = ({
       </main>
     </Layout>
   )
+}
+
+Article.propTypes = {
+  nodes: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default Article

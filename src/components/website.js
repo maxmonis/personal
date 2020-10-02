@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import Image from "gatsby-image"
 import { css } from "@emotion/core"
 
@@ -75,6 +76,11 @@ const Website = ({ website, i }) => {
       </div>
     </div>
   )
+}
+
+Website.propTypes = {
+  website: PropTypes.object.isRequired,
+  i: PropTypes.number.isRequired,
 }
 
 export default Website
