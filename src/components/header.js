@@ -6,14 +6,17 @@ import icon from "../images/favicon.png"
 
 const Container = styled.header`
   width: 100%;
-  padding: 2rem 5%;
   display: flex;
   flex: row;
+  a {
+    padding: 1rem 0 0 5%;
+  }
   span {
+    padding: 2rem 5%;
     margin: 0 0 0 auto;
     a {
       padding: 1rem 1rem 0;
-      &.email-link {
+      &.email {
         padding: 1rem;
         border: solid 2px var(--blue);
         border-radius: 8px;
@@ -29,14 +32,12 @@ const Image = styled.img`
 const Header = ({ title }) => {
   return (
     <Container>
-      <h1>
-        <Link to="/">
-          <Image src={icon} alt={title} />
-        </Link>
-      </h1>
+      <Link to="/">
+        <Image src={icon} alt={title} />
+      </Link>
       <span>
         <Link to="/blog/">Blog</Link>
-        <a href={`mailto:mmonis77@gmail.com`} className="email-link">
+        <a href={`mailto:mmonis77@gmail.com`} className="email">
           Get In Touch
         </a>
       </span>

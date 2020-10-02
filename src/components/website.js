@@ -2,26 +2,27 @@ import React from "react"
 import Image from "gatsby-image"
 import { css } from "@emotion/core"
 
-const Website = ({ website }) => {
+const Website = ({ website, i }) => {
   const { title, text, url, image, github } = website
+  const primary = i % 2 ? "white" : "var(--blue)"
+  const secondary = i % 2 ? "var(--blue)" : "white"
   return (
     <div
       css={css`
-        border-top: 1px solid #e1e1e1;
+        background-color: ${primary};
         display: inline-block;
         justify-content: center;
-        max-width: 90%;
-        padding-bottom: 2rem;
+        padding: 1rem;
         h1,
         p {
-          margin: 2rem 0;
+          color: ${secondary};
+          margin: 1rem 0;
         }
         @media (min-width: 576px) {
-          padding-bottom: 4rem;
+          padding: 2rem;
           p {
-            margin: 2rem 0 4rem;
             @media (min-width: 992px) {
-              margin: 2rem 0 10rem;
+              margin: 2rem 0 5rem;
             }
           }
         }
@@ -42,19 +43,24 @@ const Website = ({ website }) => {
           }
         `}
       >
-        <div>
-          <a target="_blank" rel="noreferrer" href={url}>
+        <a target="_blank" rel="noreferrer" href={url}>
+          <div
+            css={css`
+              border: 3px solid ${secondary};
+            `}
+          >
             <Image fluid={image.fluid} />
-          </a>
-        </div>
+          </div>
+        </a>
         <aside>
           <p>{text}</p>
           <a
             css={css`
-              padding: 1rem 2rem;
               max-width: 275px;
+              color: ${secondary};
               @media (min-width: 992px) {
-                border: solid 2px white;
+                padding: 1rem 2rem;
+                border: solid 2px ${secondary};
               }
             `}
             target="_blank"
