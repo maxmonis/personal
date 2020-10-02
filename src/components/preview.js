@@ -13,7 +13,6 @@ const Preview = ({ article }) => {
         display: inline-block;
         justify-content: center;
         padding: 1rem;
-        max-width: 90%;
         h1 {
           padding-bottom: 1rem;
         }
@@ -24,8 +23,21 @@ const Preview = ({ article }) => {
     >
       <Link to={`../${slug}`}>
         <h1>{title}</h1>
-        <Image fluid={image.fluid} />
-        <p>{blurb}</p>
+        <div
+          css={css`
+            @media (min-width: 768px) {
+              display: grid;
+              grid-template-columns: 2fr 1fr;
+              column-gap: 1rem;
+            }
+            @media (min-width: 992px) {
+              display: inline-block;
+            }
+          `}
+        >
+          <Image fluid={image.fluid} />
+          <p>{blurb}</p>
+        </div>
       </Link>
     </div>
   )
