@@ -7,34 +7,64 @@ const Website = ({ website }) => {
   return (
     <div
       css={css`
-        border: 1px solid #e1e1e1;
-        margin-bottom: 2rem;
+        border-top: 1px solid #e1e1e1;
         display: inline-block;
         justify-content: center;
-        padding: 2rem 2rem 5rem;
-        max-width: 75%;
+        max-width: 90%;
+        padding-bottom: 2rem;
         h1,
         p {
-          margin: 4rem 2rem;
+          margin: 2rem 0;
+        }
+        @media (min-width: 576px) {
+          padding-bottom: 4rem;
+          p {
+            margin: 2rem 0 4rem;
+            @media (min-width: 992px) {
+              margin: 2rem 0 10rem;
+            }
+          }
         }
       `}
     >
       <h1>{title}</h1>
-      <a target="_blank" rel="noreferrer" href={url}>
-        <Image fluid={image.fluid} />
-      </a>
-      <p>{text}</p>
-      <a
+      <div
         css={css`
-          padding: 1rem 2rem;
-          border: solid 2px white;
+          @media (min-width: 768px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 1rem;
+          }
+          @media (min-width: 992px) {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            column-gap: 1rem;
+          }
         `}
-        target="_blank"
-        rel="noreferrer"
-        href={github}
       >
-        View code on Github &#10132;
-      </a>
+        <div>
+          <a target="_blank" rel="noreferrer" href={url}>
+            <Image fluid={image.fluid} />
+          </a>
+        </div>
+        <aside>
+          <p>{text}</p>
+          <a
+            css={css`
+              padding: 1rem 2rem;
+              max-width: 275px;
+              @media (min-width: 992px) {
+                border: solid 2px white;
+              }
+            `}
+            target="_blank"
+            rel="noreferrer"
+            href={github}
+          >
+            View code on Github &#10132;
+          </a>
+        </aside>
+      </div>
     </div>
   )
 }

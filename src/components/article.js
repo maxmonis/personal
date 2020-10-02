@@ -36,28 +36,14 @@ const Article = ({
           max-width: 1200px;
           text-align: center;
           h1 {
-            font-size: 4rem;
             padding-bottom: 1rem;
             @media (min-width: 768px) {
-              font-size: 6rem;
+              font-size: 4rem;
               padding-bottom: 3rem;
-            }
-          }
-          h2 {
-            margin: 2rem 0;
-            font-size: 3rem;
-            @media (min-width: 768px) {
-              font-size: 5rem;
             }
           }
           p {
             padding: 2rem 10% 0;
-            :first-of-type {
-              margin-top: 5rem;
-            }
-            :last-of-type {
-              margin-bottom: 5rem;
-            }
           }
         `}
       >

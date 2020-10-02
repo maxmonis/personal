@@ -24,7 +24,7 @@ const IndexPage = () => {
             display: block;
             padding: 1rem;
             border: solid 2px white;
-            margin: 5rem auto;
+            margin: 5rem auto 0;
             max-width: 200px;
           }
         `}

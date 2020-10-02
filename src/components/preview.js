@@ -12,13 +12,13 @@ const Preview = ({ article }) => {
         margin-bottom: 2rem;
         display: inline-block;
         justify-content: center;
-        padding: 2rem;
-        max-width: 75%;
+        padding: 1rem;
+        max-width: 90%;
         h1 {
           padding-bottom: 1rem;
         }
         p {
-          padding: 1rem 10% 0;
+          padding-top: 1rem;
         }
       `}
     >

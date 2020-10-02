@@ -46,6 +46,7 @@ const Layout = ({ children }) => {
           css={css`
             text-align: center;
             padding-bottom: 1rem;
+            margin-top: 5rem;
           `}
         >
           <a
