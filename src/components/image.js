@@ -1,9 +1,11 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import styled from "@emotion/styled"
 
+const Background = styled(BackgroundImage)`
+  width: 100%;
+`
 const Container = styled.div`
   background-image: linear-gradient(
     to top,
@@ -15,9 +17,16 @@ const Container = styled.div`
   flex: 1;
   align-items: center;
   text-align: center;
+  height: 100%;
+  h1,
+  h2,
+  h3 {
+    margin: 5rem auto;
+    color: white;
+  }
 `
 
-const Image = ({ children }) => {
+const Image = () => {
   const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "mad-max.jpeg" }) {
@@ -29,20 +38,21 @@ const Image = ({ children }) => {
       }
     }
   `)
+  const date = new Date()
+  const hrs = date.getHours()
+  const greeting = hrs < 12 ? "morning" : hrs < 17 ? "afternoon" : "evening"
   return (
-    <BackgroundImage tag="section" fluid={image.sharp.fluid} fadeIn="soft">
-      <Container>
-        {children}
-        <p>
-          Warner Bros., Village Roadshow Pictures, Kennedy Miller Productions
-        </p>
-      </Container>
-    </BackgroundImage>
+    <>
+      <Background tag="section" fluid={image.sharp.fluid} fadeIn="soft">
+        <Container>
+          <h2>Good {greeting} and welcome!</h2>
+          <h1>My name is Max</h1>
+          <h3>I build websites</h3>
+        </Container>
+      </Background>
+      <p>Warner Bros., Village Roadshow Pictures, Kennedy Miller Productions</p>
+    </>
   )
-}
-
-Image.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Image

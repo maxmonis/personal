@@ -15,7 +15,7 @@ const Container = styled.header`
       padding: 1rem 1rem 0;
       &.email-link {
         padding: 1rem;
-        border: solid 2px white;
+        border: solid 2px var(--blue);
         border-radius: 8px;
         max-width: 200px;
       }

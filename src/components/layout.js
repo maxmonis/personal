@@ -23,10 +23,9 @@ const Layout = ({ children }) => {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            color: white;
+            color: var(--blue);
             text-decoration: none;
             list-style: none;
-            background-color: var(--blue);
           }
           :root {
             --blue: #486383;
