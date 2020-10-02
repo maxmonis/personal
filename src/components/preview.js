@@ -21,7 +21,7 @@ const Preview = ({ article }) => {
         }
       `}
     >
-      <Link to={`../${slug}`}>
+      <Link to={`../blog/${slug}`}>
         <h1>{title}</h1>
         <div
           css={css`
