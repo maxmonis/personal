@@ -1,15 +1,18 @@
 import React from "react"
 import Layout from "../components/layout"
+import Website from "../components/website"
 import SEO from "../components/seo"
 import { css } from "@emotion/core"
+import useWebsites from "../hooks/useWebsites"
 
 const IndexPage = () => {
+  const websites = useWebsites()
   const date = new Date()
   const hrs = date.getHours()
   const greeting = hrs < 12 ? "morning" : hrs < 17 ? "afternoon" : "evening"
   return (
     <Layout>
-      <SEO title="About" />
+      <SEO title="Portfolio" />
       <div
         css={css`
           h2 {
@@ -20,22 +23,15 @@ const IndexPage = () => {
           h3 {
             margin-bottom: 2rem;
           }
-          a {
-            display: block;
-            padding: 1rem;
-            border: solid 2px white;
-            margin: 5rem auto 0;
-            max-width: 200px;
-          }
         `}
       >
         <h2>Good {greeting} and welcome!</h2>
         <h1>My name is Max</h1>
         <h3>I build websites</h3>
-        <a href={`mailto:mmonis77@gmail.com`} className="email-link">
-          Get In Touch
-        </a>
       </div>
+      {websites.map(website => (
+        <Website key={website.url} website={website} />
+      ))}
     </Layout>
   )
 }
