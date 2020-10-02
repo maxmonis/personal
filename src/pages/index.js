@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import Website from "../components/website"
+import About from "../components/about"
 import SEO from "../components/seo"
 import useWebsites from "../hooks/useWebsites"
 import Image from "../components/image"
@@ -15,8 +16,10 @@ const IndexPage = () => {
       <Image />
       <div
         css={css`
+          max-width: 95%;
           img {
-            height: 50vh;
+            max-width: 300px;
+            width: 90%;
             border: solid 3px var(--blue);
             border-radius: 25px;
           }
@@ -48,6 +51,7 @@ const IndexPage = () => {
       {websites.map((website, i) => (
         <Website key={website.url} website={website} i={i} />
       ))}
+      <About />
     </Layout>
   )
 }
