@@ -1,59 +1,45 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "@emotion/styled"
+import icon from "../images/favicon.png"
 
 const Container = styled.header`
   width: 100%;
-  height: 100px;
-  padding: 2rem 5%;
   display: flex;
   flex: row;
+  a {
+    padding: 1rem 0 0 5%;
+  }
   span {
+    padding: 2rem 5%;
     margin: 0 0 0 auto;
     a {
       padding: 1rem 1rem 0;
-      &.active {
-        border-bottom: 2px solid #fff;
+      &.email {
+        padding: 1rem;
+        border: solid 2px var(--blue);
+        border-radius: 8px;
+        max-width: 200px;
       }
     }
   }
-  li {
-    margin-top: 1rem;
-    text-align: right;
-  }
+`
+const Image = styled.img`
+  height: 45px;
 `
 
 const Header = ({ title }) => {
-  const [mobile, setMobile] = useState(
-    typeof window !== "undefined" && window.innerWidth < 576
-  )
-  const updateMedia = () => {
-    setMobile(window.innerWidth < 576)
-  }
-  useEffect(() => {
-    window.addEventListener("resize", updateMedia)
-    return () => window.removeEventListener("resize", updateMedia)
-  })
   return (
     <Container>
-      <h1>
-        <Link to="/">{mobile ? "MM" : title} </Link>
-      </h1>
+      <Link to="/">
+        <Image src={icon} alt={title} />
+      </Link>
       <span>
-        <div>
-          {!mobile && (
-            <Link to="/" activeClassName="active">
-              About
-            </Link>
-          )}
-          <Link to="/portfolio/" activeClassName="active">
-            Portfolio
-          </Link>
-          <Link to="/blog/" activeClassName="active">
-            Blog
-          </Link>
-        </div>
+        <Link to="/blog/">Blog</Link>
+        <a href={`mailto:mmonis77@gmail.com`} className="email">
+          Get In Touch
+        </a>
       </span>
     </Container>
   )

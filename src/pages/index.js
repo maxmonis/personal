@@ -1,40 +1,41 @@
 import React from "react"
 import Layout from "../components/layout"
+import Website from "../components/website"
 import SEO from "../components/seo"
+import useWebsites from "../hooks/useWebsites"
+import Image from "../components/image"
 import { css } from "@emotion/core"
 
 const IndexPage = () => {
-  const date = new Date()
-  const hrs = date.getHours()
-  const greeting = hrs < 12 ? "morning" : hrs < 17 ? "afternoon" : "evening"
+  const websites = useWebsites()
   return (
     <Layout>
-      <SEO title="About" />
+      <SEO title="Portfolio" />
+      <Image />
       <div
         css={css`
-          h2 {
-            margin-top: 5rem;
+          max-width: 90%;
+          h1 {
+            margin: 10rem auto 5rem;
           }
-          h1,
-          h2,
           h3 {
-            margin-bottom: 2rem;
+            margin-bottom: 10rem;
           }
-          a {
-            display: block;
-            padding: 1rem;
-            border: solid 2px white;
-            margin: 5rem auto;
-            max-width: 200px;
+          @media (min-width: 992px) {
+            h1 {
+              font-size: 4rem;
+            }
+            h3 {
+              font-size: 2rem;
+            }
           }
         `}
       >
-        <h2>Good {greeting} and welcome!</h2>
-        <h1>My name is Max</h1>
-        <h3>I build websites</h3>
-        <a href={`mailto:mmonis77@gmail.com`} className="email-link">
-          Get In Touch
-        </a>
+        <h1>Toronto-based web developer</h1>
+        <h3>Passionate about creating simple and intuitive user interfaces</h3>
+        {websites.map((website, i) => (
+          <Website key={website.url} website={website} i={i} />
+        ))}
       </div>
     </Layout>
   )

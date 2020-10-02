@@ -12,20 +12,32 @@ const Preview = ({ article }) => {
         margin-bottom: 2rem;
         display: inline-block;
         justify-content: center;
-        padding: 2rem;
-        max-width: 75%;
+        padding: 1rem;
         h1 {
           padding-bottom: 1rem;
         }
         p {
-          padding: 1rem 10% 0;
+          padding-top: 1rem;
         }
       `}
     >
       <Link to={`../${slug}`}>
         <h1>{title}</h1>
-        <Image fluid={image.fluid} />
-        <p>{blurb}</p>
+        <div
+          css={css`
+            @media (min-width: 768px) {
+              display: grid;
+              grid-template-columns: 2fr 1fr;
+              column-gap: 1rem;
+            }
+            @media (min-width: 992px) {
+              display: inline-block;
+            }
+          `}
+        >
+          <Image fluid={image.fluid} />
+          <p>{blurb}</p>
+        </div>
       </Link>
     </div>
   )
