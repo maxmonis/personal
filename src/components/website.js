@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import Image from "gatsby-image"
 import { css } from "@emotion/core"
 
@@ -9,10 +10,12 @@ const Website = ({ website, i }) => {
   return (
     <div
       css={css`
+        max-width: 95%;
         background-color: ${primary};
         display: inline-block;
+        margin-bottom: 5rem;
         justify-content: center;
-        padding: 1rem;
+        padding: 1rem 1rem 3rem;
         h1,
         p {
           color: ${secondary};
@@ -73,6 +76,11 @@ const Website = ({ website, i }) => {
       </div>
     </div>
   )
+}
+
+Website.propTypes = {
+  website: PropTypes.object.isRequired,
+  i: PropTypes.number.isRequired,
 }
 
 export default Website

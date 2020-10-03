@@ -10,10 +10,12 @@ const NotFoundPage = () => (
     <div
       css={css`
         text-align: center;
+        h1 {
+          margin: 5rem auto 10rem;
+        }
       `}
     >
       <h1>404: NOT FOUND</h1>
-      <br />
       <Link to="/">Return home</Link>
     </div>
   </Layout>

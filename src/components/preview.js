@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import Image from "gatsby-image"
 import { css } from "@emotion/core"
@@ -21,7 +22,7 @@ const Preview = ({ article }) => {
         }
       `}
     >
-      <Link to={`../${slug}`}>
+      <Link to={`../blog/${slug}`}>
         <h1>{title}</h1>
         <div
           css={css`
@@ -41,6 +42,10 @@ const Preview = ({ article }) => {
       </Link>
     </div>
   )
+}
+
+Preview.propTypes = {
+  article: PropTypes.object.isRequired,
 }
 
 export default Preview

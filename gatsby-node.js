@@ -15,7 +15,7 @@ exports.createPages = async ({ graphql, reporter, actions }) => {
   for (const article of articles) {
     const { slug } = article
     actions.createPage({
-      path: slug,
+      path: `blog/${slug}`,
       component: require.resolve("./src/components/article.js"),
       context: {
         slug: slug,

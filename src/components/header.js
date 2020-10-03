@@ -36,7 +36,7 @@ const Header = ({ title }) => {
         <Image src={icon} alt={title} />
       </Link>
       <span>
-        <Link to="/blog/">Blog</Link>
+        <Link to="/blog">Blog</Link>
         <a href={`mailto:mmonis77@gmail.com`} className="email">
           Get In Touch
         </a>

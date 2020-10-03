@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Global, css } from "@emotion/core"
 import Header from "./header"
+import Footer from "./footer"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -45,17 +46,7 @@ const Layout = ({ children }) => {
       >
         {children}
       </main>
-      <footer
-        css={css`
-          text-align: center;
-          padding-bottom: 1rem;
-          margin-top: 5rem;
-        `}
-      >
-        <a target="_blank" rel="noreferrer" href="https://github.com/maxmonis">
-          © Max Monis {new Date().getFullYear()}
-        </a>
-      </footer>
+      <Footer />
     </>
   )
 }
