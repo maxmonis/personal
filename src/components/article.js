@@ -12,6 +12,7 @@ export const query = graphql`
       nodes {
         title
         text
+        published
         image {
           fluid(maxWidth: 1200) {
             ...GatsbyDatoCmsFluid
@@ -27,7 +28,13 @@ const Article = ({
     allDatoCmsArticle: { nodes },
   },
 }) => {
-  const { title, text, image } = nodes[0]
+  const { title, text, image, published } = nodes[0]
+  const date = new Date(published).toLocaleDateString(undefined, {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })
   return (
     <Layout>
       <SEO title={title} />
@@ -40,7 +47,14 @@ const Article = ({
             padding-bottom: 1rem;
             @media (min-width: 768px) {
               font-size: 4rem;
-              padding-bottom: 3rem;
+              padding-bottom: 2rem;
+            }
+          }
+          h3 {
+            padding-top: 1rem;
+            @media (min-width: 768px) {
+              font-size: 2rem;
+              padding-top: 3rem;
             }
           }
           p {
@@ -50,6 +64,7 @@ const Article = ({
       >
         <h1>{title}</h1>
         <Image fluid={image.fluid} />
+        <h3>{date}</h3>
         {text.split(/\r|\n/).map((paragraph, i) => (
           <p key={i}>{paragraph}</p>
         ))}

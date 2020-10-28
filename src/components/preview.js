@@ -3,15 +3,17 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import Image from "gatsby-image"
 import { css } from "@emotion/core"
+import formatDistanceToNow from "date-fns/formatDistanceToNow"
 
 const Preview = ({ article }) => {
-  const { title, blurb, slug, image } = article
+  const { title, blurb, slug, image, published } = article
   return (
     <div
       css={css`
         border: 1px solid #e1e1e1;
         margin-bottom: 2rem;
         display: inline-block;
+        min-width: 100%;
         justify-content: center;
         padding: 1rem;
         h1 {
@@ -24,20 +26,16 @@ const Preview = ({ article }) => {
     >
       <Link to={`../blog/${slug}`}>
         <h1>{title}</h1>
-        <div
-          css={css`
-            @media (min-width: 768px) {
-              display: grid;
-              grid-template-columns: 2fr 1fr;
-              column-gap: 1rem;
-            }
-            @media (min-width: 992px) {
-              display: inline-block;
-            }
-          `}
-        >
+        <div>
           <Image fluid={image.fluid} />
-          <p>{blurb}</p>
+          <div
+            css={css`
+              margin: auto auto 0;
+            `}
+          >
+            <p>{blurb}</p>
+            <p>Published {formatDistanceToNow(new Date(published))} ago</p>
+          </div>
         </div>
       </Link>
     </div>

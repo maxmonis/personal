@@ -14,9 +14,14 @@ const Blog = () => {
       <div
         css={css`
           padding: 2rem;
-          @media (min-width: 992px) {
+          @media (min-width: 576px) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
+            column-gap: 1rem;
+          }
+          @media (min-width: 992px) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             column-gap: 1rem;
           }
         `}
