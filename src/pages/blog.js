@@ -1,5 +1,5 @@
 import React from "react"
-
+import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import useArticles from "../hooks/useArticles"
@@ -29,6 +29,21 @@ const Blog = () => {
         {articles.map(article => (
           <Preview key={article.slug} article={article} />
         ))}
+      </div>
+      <div
+        css={css`
+          margin-top: 10rem;
+          text-align: center;
+          text-transform: uppercase;
+          a {
+            font-size: 20px;
+            :hover {
+              border-bottom: 1px solid var(--blue);
+            }
+          }
+        `}
+      >
+        <Link to="/">Home</Link>
       </div>
     </Layout>
   )

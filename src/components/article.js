@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
+import { Link } from "gatsby"
 import Image from "gatsby-image"
 import { css } from "@emotion/core"
 import { graphql } from "gatsby"
@@ -27,7 +27,9 @@ const Article = ({
   data: {
     allDatoCmsArticle: { nodes },
   },
+  pageContext,
 }) => {
+  const { next, previous } = pageContext
   const { title, text, image, published } = nodes[0]
   const date = new Date(published).toLocaleDateString(undefined, {
     weekday: "long",
@@ -40,7 +42,7 @@ const Article = ({
       <SEO title={title} />
       <main
         css={css`
-          margin: 0 auto;
+          margin: 3rem auto 0;
           max-width: 1200px;
           text-align: center;
           h1 {
@@ -58,7 +60,7 @@ const Article = ({
             }
           }
           p {
-            padding: 2rem 10% 0;
+            padding: 1rem 10% 0;
           }
         `}
       >
@@ -69,12 +71,30 @@ const Article = ({
           <p key={i}>{paragraph}</p>
         ))}
       </main>
+      <div
+        css={css`
+          padding-top: 5rem;
+          text-transform: uppercase;
+          a {
+            margin: 1rem;
+            font-size: 20px;
+            :hover {
+              border-bottom: 1px solid var(--blue);
+            }
+          }
+          div {
+            height: 5rem;
+          }
+        `}
+      >
+        {previous && <Link to={`../${previous}`}>&#9668; Previous</Link>}
+        {next && <Link to={`../${next}`}>Next &#9658;</Link>}
+        <div />
+        <Link to="/">Home</Link>
+        <Link to="/blog">Blog</Link>
+      </div>
     </Layout>
   )
-}
-
-Article.propTypes = {
-  nodes: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default Article

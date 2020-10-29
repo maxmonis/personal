@@ -1,7 +1,7 @@
 exports.createPages = async ({ graphql, reporter, actions }) => {
   const res = await graphql(`
     query {
-      allDatoCmsArticle {
+      allDatoCmsArticle(sort: { fields: [published], order: ASC }) {
         nodes {
           slug
         }
@@ -12,14 +12,18 @@ exports.createPages = async ({ graphql, reporter, actions }) => {
     reporter.panic("No results ", res.errors)
   }
   const articles = res.data.allDatoCmsArticle.nodes
-  for (const article of articles) {
+  articles.forEach((article, i) => {
     const { slug } = article
+    const previous = articles[i - 1] || null
+    const next = articles[i + 1] || null
     actions.createPage({
       path: `blog/${slug}`,
       component: require.resolve("./src/components/article.js"),
       context: {
         slug: slug,
+        previous: previous ? previous.slug : null,
+        next: next ? next.slug : null,
       },
     })
-  }
+  })
 }

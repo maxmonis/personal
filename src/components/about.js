@@ -6,8 +6,9 @@ const About = () => {
     <div
       css={css`
         max-width: 90%;
+        margin-top: 3rem;
         h3 {
-          margin: 2rem auto;
+          margin: 2rem auto 1rem;
         }
       `}
     >

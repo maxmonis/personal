@@ -9,8 +9,26 @@ const Footer = () => {
       css={css`
         text-align: center;
         margin-top: 5rem;
+        button {
+          outline: none;
+          border: none;
+          background-color: #ffffff;
+          color: var(--blue);
+          cursor: pointer;
+          margin-bottom: 3rem;
+          font-size: 1rem;
+          :hover {
+            border-bottom: 1px solid var(--blue);
+          }
+        }
       `}
     >
+      <button
+        href="#top"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
+        Scroll to top &#8593;
+      </button>
       <div
         css={css`
           display: flex;
