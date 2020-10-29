@@ -5,15 +5,14 @@ import { css } from "@emotion/core"
 
 const Website = ({ website, i }) => {
   const { title, text, url, image, github } = website
-  const primary = i % 2 ? "white" : "var(--blue)"
-  const secondary = i % 2 ? "var(--blue)" : "white"
+  const primary = i % 2 ? "var(--blue)" : "white"
+  const secondary = i % 2 ? "white" : "var(--blue)"
   return (
     <div
       css={css`
         max-width: 95%;
         background-color: ${primary};
         display: inline-block;
-        margin-bottom: 5rem;
         justify-content: center;
         padding: 1rem 1rem 3rem;
         h1,
