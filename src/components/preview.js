@@ -27,15 +27,20 @@ const Preview = ({ article }) => {
       <Link to={`../blog/${slug}`}>
         <h1>{title}</h1>
         <div>
-          <Image fluid={image.fluid} />
           <div
             css={css`
-              margin: auto auto 0;
+              @media (min-width: 576px) {
+                max-height: 200px;
+                img {
+                  max-height: 200px;
+                }
+              }
             `}
           >
-            <p>{blurb}</p>
-            <p>Published {formatDistanceToNow(new Date(published))} ago</p>
+            <Image fluid={image.fluid} />
           </div>
+          <p>{blurb}</p>
+          <p>Published {formatDistanceToNow(new Date(published))} ago</p>
         </div>
       </Link>
     </div>

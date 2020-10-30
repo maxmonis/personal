@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,9 +8,17 @@ import { css } from "@emotion/core"
 
 const Blog = () => {
   const articles = useArticles()
+  const [order, setOrder] = useState("newest")
   return (
     <Layout>
       <SEO title="Blog" />
+      <label>
+        Sort by{" "}
+        <select onChange={e => setOrder(e.target.value)}>
+          <option value="newest">Newest</option>
+          <option value="oldest">Oldest</option>
+        </select>
+      </label>
       <div
         css={css`
           padding: 2rem;
@@ -22,17 +30,20 @@ const Blog = () => {
           @media (min-width: 992px) {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            column-gap: 1rem;
           }
         `}
       >
-        {articles.map(article => (
-          <Preview key={article.slug} article={article} />
-        ))}
+        {order === "newest"
+          ? articles.map(article => (
+              <Preview key={article.slug} article={article} />
+            ))
+          : articles
+              .reverse()
+              .map(article => <Preview key={article.slug} article={article} />)}
       </div>
       <div
         css={css`
-          margin-top: 10rem;
+          margin-top: 5rem;
           text-align: center;
           text-transform: uppercase;
           a {
