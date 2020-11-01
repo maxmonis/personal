@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import { css } from "@emotion/core"
 
 const About = () => {
@@ -26,6 +27,21 @@ const About = () => {
         regarding job opportunities, freelance work, invitations to collaborate
         on open source, or just to say hi
       </p>
+      <div
+        css={css`
+          margin-top: 5rem;
+          text-align: center;
+          text-transform: uppercase;
+          a {
+            font-size: 20px;
+            :hover {
+              border-bottom: 1px solid var(--blue);
+            }
+          }
+        `}
+      >
+        <Link to="/blog">Blog</Link>
+      </div>
     </div>
   )
 }
