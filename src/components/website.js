@@ -32,12 +32,14 @@ const Website = ({ website, i }) => {
       </a>
       <div
         css={css`
+          max-width: 1025px;
           @media (min-width: 768px) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             column-gap: 1rem;
           }
           @media (min-width: 992px) {
+            padding-left: 1rem;
             display: grid;
             grid-template-columns: 2fr 1fr;
           }
@@ -68,6 +70,7 @@ const Website = ({ website, i }) => {
               margin-top: 1rem;
               p {
                 margin: 0;
+                padding: 0 2rem 0 1rem;
               }
               div {
                 position: absolute;
@@ -75,8 +78,10 @@ const Website = ({ website, i }) => {
                 width: 100%;
               }
             }
-            @media (min-width: 992px) {
+            @media (min-width: 900px) {
               font-size: 20px;
+            }
+            @media (min-width: 992px) {
               margin-top: 2rem;
             }
           `}

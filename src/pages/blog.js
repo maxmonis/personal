@@ -21,7 +21,7 @@ const Blog = () => {
       </label>
       <div
         css={css`
-          padding: 2rem;
+          padding: 2rem 2rem 0;
           @media (min-width: 576px) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);

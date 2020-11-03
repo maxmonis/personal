@@ -38,6 +38,8 @@ const Image = () => {
       }
     }
   `)
+  const copyright =
+    "Warner Bros., Village Roadshow Pictures, Kennedy Miller Productions"
   const date = new Date()
   const hrs = date.getHours()
   const greeting = hrs < 12 ? "morning" : hrs < 17 ? "afternoon" : "evening"
@@ -50,7 +52,7 @@ const Image = () => {
           <h3>I build websites</h3>
         </Container>
       </Background>
-      <p>Warner Bros., Village Roadshow Pictures, Kennedy Miller Productions</p>
+      <p>{copyright}</p>
     </>
   )
 }

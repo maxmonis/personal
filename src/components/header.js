@@ -26,7 +26,7 @@ const Container = styled.header`
   }
 `
 const Image = styled.img`
-  height: 45px;
+  height: 55px;
 `
 
 const Header = ({ title }) => {

@@ -46,7 +46,7 @@ const IndexPage = () => {
         `}
       >
         <h1>Toronto-based web developer</h1>
-        <h3>Passionate about creating simple and intuitive user interfaces</h3>
+        <h3>Passionate about creating pixel-perfect responsive user interfaces</h3>
         <img src={photo} alt={"Max Monis"} />
         <p>Not really Tom Hardy (sorry)</p>
         <h3>Here are some samples of my work:</h3>
