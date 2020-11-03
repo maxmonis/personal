@@ -10,27 +10,26 @@ const Website = ({ website, i }) => {
   return (
     <div
       css={css`
-        max-width: 95%;
         background-color: ${primary};
         display: inline-block;
         justify-content: center;
+        margin-bottom: 2rem;
         padding: 1rem 1rem 3rem;
         h1,
         p {
           color: ${secondary};
-          margin: 1rem 0;
         }
-        @media (min-width: 576px) {
-          padding: 2rem;
-          p {
-            @media (min-width: 992px) {
-              margin: 2rem 0 5rem;
-            }
+        h1 {
+          margin: 1rem 0;
+          @media (min-width: 576px) {
+            font-size: 3rem;
           }
         }
       `}
     >
-      <h1>{title}</h1>
+      <a target="_blank" rel="noreferrer" href={url}>
+        <h1>{title}</h1>
+      </a>
       <div
         css={css`
           @media (min-width: 768px) {
@@ -41,37 +40,54 @@ const Website = ({ website, i }) => {
           @media (min-width: 992px) {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            column-gap: 1rem;
           }
         `}
       >
         <a target="_blank" rel="noreferrer" href={url}>
           <div
             css={css`
-              border: 3px solid ${secondary};
+              border: 2px solid ${secondary};
             `}
           >
             <Image fluid={image.fluid} />
           </div>
         </a>
-        <aside>
-          <p>{text}</p>
-          <a
-            css={css`
+        <div
+          css={css`
+            a {
               max-width: 275px;
               color: ${secondary};
-              @media (min-width: 992px) {
-                padding: 1rem 2rem;
-                border: solid 2px ${secondary};
+              padding: 1rem 2rem;
+              border: 2px solid ${secondary};
+            }
+            p {
+              margin: 1rem 0 2rem;
+            }
+            @media (min-width: 768px) {
+              position: relative;
+              margin-top: 1rem;
+              p {
+                margin: 0;
               }
-            `}
-            target="_blank"
-            rel="noreferrer"
-            href={github}
-          >
-            View code on Github &#10132;
-          </a>
-        </aside>
+              div {
+                position: absolute;
+                bottom: 2rem;
+                width: 100%;
+              }
+            }
+            @media (min-width: 992px) {
+              font-size: 20px;
+              margin-top: 2rem;
+            }
+          `}
+        >
+          <p>{text}</p>
+          <div>
+            <a target="_blank" rel="noreferrer" href={github}>
+              View code on Github &#10132;
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   )
