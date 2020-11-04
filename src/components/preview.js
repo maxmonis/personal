@@ -13,7 +13,7 @@ const Preview = ({ article }) => {
         border: 1px solid #e1e1e1;
         margin-bottom: 2rem;
         display: inline-block;
-        min-width: 100%;
+        width: 100%;
         justify-content: center;
         padding: 1rem;
         h1 {
@@ -22,6 +22,10 @@ const Preview = ({ article }) => {
         p {
           padding-top: 1rem;
         }
+        @media (min-width: 576px) {
+          width: 250px;
+          margin: 10px;
+        }
       `}
     >
       <Link to={`../blog/${slug}`}>
@@ -29,10 +33,14 @@ const Preview = ({ article }) => {
         <div>
           <div
             css={css`
+              max-height: 275px;
+              img {
+                max-height: 275px;
+              }
               @media (min-width: 576px) {
-                max-height: 200px;
+                max-height: 150px;
                 img {
-                  max-height: 200px;
+                  max-height: 150px;
                 }
               }
             `}

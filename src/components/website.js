@@ -64,6 +64,7 @@ const Website = ({ website, i }) => {
             }
             p {
               margin: 1rem 0 2rem;
+              padding: 0 1rem;
             }
             @media (min-width: 768px) {
               position: relative;

@@ -54,15 +54,13 @@ const Blog = () => {
       </label>
       <div
         css={css`
-          padding: 2rem 2rem 0;
+          max-width: 1200px;
+          padding: 2rem 1rem 0;
           @media (min-width: 576px) {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            column-gap: 1rem;
-          }
-          @media (min-width: 992px) {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            flex: row;
+            flex-wrap: wrap;
+            justify-content: center;
           }
         `}
       >
