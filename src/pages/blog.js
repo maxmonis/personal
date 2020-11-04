@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -9,9 +9,42 @@ import { css } from "@emotion/core"
 const Blog = () => {
   const articles = useArticles()
   const [order, setOrder] = useState("newest")
+  const [filtered, setFiltered] = useState(articles)
+  const [query, setQuery] = useState("")
+  const reset = () => {
+    setFiltered(order === "newest" ? articles : articles.reverse())
+    setQuery("")
+  }
+
+  useEffect(() => {
+    const search = query.trim()
+    if (!search) {
+      reset()
+    } else {
+      const regex = new RegExp(search, "gi")
+      const res = articles.filter(({ title, text }) =>
+        (title + text).match(regex)
+      )
+      res.length
+        ? setFiltered(order === "newest" ? res : res.reverse())
+        : reset()
+    }
+    // eslint-disable-next-line
+  }, [query, order])
+
   return (
     <Layout>
       <SEO title="Blog" />
+      <input
+        css={css`
+          padding: 5px 10px;
+          margin: 1rem;
+          width: 10rem;
+        `}
+        placeholder="Search articles..."
+        value={query}
+        onChange={e => setQuery(e.target.value)}
+      />
       <label>
         Sort by{" "}
         <select onChange={e => setOrder(e.target.value)}>
@@ -21,25 +54,19 @@ const Blog = () => {
       </label>
       <div
         css={css`
-          padding: 2rem;
+          max-width: 1200px;
+          padding: 2rem 1rem 0;
           @media (min-width: 576px) {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            column-gap: 1rem;
-          }
-          @media (min-width: 992px) {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            flex: row;
+            flex-wrap: wrap;
+            justify-content: center;
           }
         `}
       >
-        {order === "newest"
-          ? articles.map(article => (
-              <Preview key={article.slug} article={article} />
-            ))
-          : articles
-              .reverse()
-              .map(article => <Preview key={article.slug} article={article} />)}
+        {filtered.map(article => (
+          <Preview key={article.slug} article={article} />
+        ))}
       </div>
       <div
         css={css`

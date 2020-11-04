@@ -47,20 +47,25 @@ const Article = ({
           text-align: center;
           h1 {
             padding-bottom: 1rem;
-            @media (min-width: 768px) {
-              font-size: 4rem;
-              padding-bottom: 2rem;
-            }
           }
           h3 {
             padding-top: 1rem;
-            @media (min-width: 768px) {
-              font-size: 2rem;
-              padding-top: 3rem;
-            }
           }
           p {
             padding: 1rem 10% 0;
+          }
+          @media (min-width: 768px) {
+            h1 {
+              font-size: 4rem;
+              padding-bottom: 2rem;
+            }
+            h3 {
+              font-size: 2rem;
+              padding-top: 3rem;
+            }
+            p {
+              font-size: 20px;
+            }
           }
         `}
       >
