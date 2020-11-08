@@ -14,6 +14,7 @@ const Preview = ({ article }) => {
         margin-bottom: 2rem;
         display: inline-block;
         width: 100%;
+        max-width: 400px;
         justify-content: center;
         padding: 1rem;
         h1 {

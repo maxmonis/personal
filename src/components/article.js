@@ -37,6 +37,8 @@ const Article = ({
     month: "long",
     day: "numeric",
   })
+  const numWords = text.split(" ").length
+  const minRead = Math.ceil(numWords / 1250) * 5
   return (
     <Layout>
       <SEO title={title} />
@@ -48,7 +50,8 @@ const Article = ({
           h1 {
             padding-bottom: 1rem;
           }
-          h3 {
+          h3,
+          h4 {
             padding-top: 1rem;
           }
           p {
@@ -63,15 +66,13 @@ const Article = ({
               font-size: 2rem;
               padding-top: 3rem;
             }
-            p {
-              font-size: 20px;
-            }
           }
         `}
       >
         <h1>{title}</h1>
         <Image fluid={image.fluid} />
         <h3>{date}</h3>
+        <h4>{minRead} minute read</h4>
         {text.split(/\r|\n/).map((paragraph, i) => (
           <p key={i}>{paragraph}</p>
         ))}
